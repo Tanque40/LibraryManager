@@ -9,6 +9,7 @@ private:
 	int count = 0;
 
 public:
+	OrderedList();
 	OrderedList( T arr[] );
 	OrderedList( T arr[], int size );
 	~OrderedList();

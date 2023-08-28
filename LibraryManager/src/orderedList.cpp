@@ -1,6 +1,11 @@
 #include "orderedList.h"
 
 template<typename T>
+OrderedList<T>::OrderedList() {
+	ptr = new T[ size ];
+}
+
+template<typename T>
 OrderedList<T>::OrderedList( T arr[] ) {
 	ptr = new T[ size ];
 	for( int i = 0; i < count; i++ )
@@ -95,7 +100,10 @@ bool OrderedList<T>::removeElement( int elementToRemove ) {
 
 template<typename T>
 T OrderedList<T>::findElement( int elementToFind ) {
-	return T();
+	int index = findElementPosition( elementToFind );
+	if( index >= 0 )
+		return ptr[ index ];
+	return NULL;
 }
 
 template<typename T>

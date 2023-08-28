@@ -15,8 +15,7 @@ public:
 		std::string _authorName,
 		std::string _authorLastName,
 		std::string _title,
-		int _year,
-		int _timesBorrowed ) :
+		int _year ) :
 		bookCode( _bookCode ),
 		authorName( _authorName ),
 		authorLastName( _authorLastName ),
