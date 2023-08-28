@@ -1,38 +1,38 @@
 #include "book.h"
 
-int Book::getBookCode(){
+int Book::getBookCode() {
 	return bookCode;
 }
 
-std::string Book::getAuthorName(){
+std::string Book::getAuthorName() {
 	return authorName;
 }
 
-std::string Book::getAuthorLastName(){
+std::string Book::getAuthorLastName() {
 	return authorLastName;
 }
 
-std::string Book::getTitle(){
+std::string Book::getTitle() {
 	return title;
 }
 
-int Book::getYear(){
+int Book::getYear() {
 	return year;
 }
 
-int Book::getTimesBorrowed(){
+int Book::getTimesBorrowed() {
 	return timesBorrowed;
 }
 
-void Book::bookBorrowed(){
+void Book::bookBorrowed() {
 	timesBorrowed++;
 }
 
-void Book::bookReturned(){
+void Book::bookReturned() {
 	timesBorrowed--;
 }
 
-std::string Book::toString(){
+std::string Book::toString() {
 	return "Book Code: " + this->getBookCode() +
 		std::string( "\nTitle: " ) + this->getTitle() +
 		std::string( "\nAuthor Name: " ) + this->getAuthorName() +

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-class Book{
+class Book {
 private:
 	int bookCode;
 	std::string authorName;
@@ -22,8 +22,25 @@ public:
 		authorLastName( _authorLastName ),
 		title( _title ),
 		year( _year ),
-		timesBorrowed( 0 ){
+		timesBorrowed( 0 ) {
 	}
+
+	bool operator < ( Book* otherBook ) {
+		return this->getBookCode() < otherBook->getBookCode();
+	}
+	bool operator < ( int bookCode ) {
+		return this->getBookCode() < bookCode;
+	}
+	bool operator > ( Book* otherBook ) {
+		return this->getBookCode() > otherBook->getBookCode();
+	}
+	bool operator > ( int bookCode ) {
+		return this->getBookCode() > bookCode;
+	}
+	bool operator == ( int bookCode ) {
+		return this->getBookCode() == bookCode;
+	}
+
 	int getBookCode();
 	std::string getAuthorName();
 	std::string getAuthorLastName();
