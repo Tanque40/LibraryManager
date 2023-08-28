@@ -11,7 +11,8 @@ private:
 	int timesBorrowed;
 
 public:
-	Book( int _bookCode,
+	Book();
+	inline Book( int _bookCode,
 		std::string _authorName,
 		std::string _authorLastName,
 		std::string _title,
@@ -24,19 +25,19 @@ public:
 		timesBorrowed( 0 ) {
 	}
 
-	bool operator < ( Book* otherBook ) {
+	inline bool operator < ( Book* otherBook ) {
 		return this->getBookCode() < otherBook->getBookCode();
 	}
-	bool operator < ( int bookCode ) {
+	inline bool operator < ( int bookCode ) {
 		return this->getBookCode() < bookCode;
 	}
-	bool operator > ( Book* otherBook ) {
+	inline bool operator > ( Book* otherBook ) {
 		return this->getBookCode() > otherBook->getBookCode();
 	}
-	bool operator > ( int bookCode ) {
+	inline bool operator > ( int bookCode ) {
 		return this->getBookCode() > bookCode;
 	}
-	bool operator == ( int bookCode ) {
+	inline bool operator == ( int bookCode ) {
 		return this->getBookCode() == bookCode;
 	}
 

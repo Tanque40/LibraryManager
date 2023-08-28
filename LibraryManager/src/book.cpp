@@ -1,5 +1,8 @@
 #include "book.h"
 
+Book::Book() {
+}
+
 int Book::getBookCode() {
 	return bookCode;
 }

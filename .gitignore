@@ -4,6 +4,8 @@
 **.vcxproj
 **.vcxproj.**
 **/x64/**
+**/Debug/**
+.vscode
 
 # Prerequisites
 *.d

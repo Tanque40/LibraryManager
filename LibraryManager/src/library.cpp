@@ -1,7 +1,10 @@
 #include "library.h"
 
 Library::Library( std::string _libraryName ) : libraryName( _libraryName ) {
-	books = OrderedList<Book>();
+	books = new OrderedList<Book>();
+}
+
+Library::~Library() {
 }
 
 Book Library::createBook( int _bookCode, std::string _authorName, std::string _authorLastName, std::string _title, int _year ) {
@@ -10,28 +13,28 @@ Book Library::createBook( int _bookCode, std::string _authorName, std::string _a
 
 bool Library::insertBook( int _bookCode, std::string _authorName, std::string _authorLastName, std::string _title, int _year ) {
 	Book bookToAdd = createBook( _bookCode, _authorName, _authorLastName, _title, _year );
-	if( books.addElement( bookToAdd ) )
+	if( books->addElement( bookToAdd ) )
 		return true;
 	return false;
 }
 
 bool Library::deleteBook( int bookCode ) {
-	if( books.removeElement( bookCode ) )
+	if( books->removeElement( bookCode ) )
 		return true;
 	return false;
 }
 
 int Library::numberOfBooks() {
-	return books.count();
+	return books->getCount();
 }
 
 std::string Library::showBook( int codeBookToShow ) {
-	Book bookToShow = books.findElement( codeBookToShow );
-	if( bookToShow == NULL )
+	Book* bookToShow = books->findElement( codeBookToShow );
+	if( bookToShow == nullptr )
 		return "Book Not Found";
-	return bookToShow.toString();
+	return bookToShow->toString();
 }
 
 std::string Library::theBooks() {
-	return books.toString();
+	return books->toString();
 }
