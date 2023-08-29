@@ -13,6 +13,7 @@ private:
 public:
 	Library( std::string _libraryName );
 	~Library();
+	std::string getLibraryName();
 	Book createBook( int _bookCode,
 		std::string _authorName,
 		std::string _authorLastName,

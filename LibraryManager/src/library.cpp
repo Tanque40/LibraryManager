@@ -7,6 +7,10 @@ Library::Library( std::string _libraryName ) : libraryName( _libraryName ) {
 Library::~Library() {
 }
 
+std::string Library::getLibraryName() {
+	return this->libraryName;
+}
+
 Book Library::createBook( int _bookCode, std::string _authorName, std::string _authorLastName, std::string _title, int _year ) {
 	return Book( _bookCode, _authorName, _authorLastName, _title, _year );
 }
@@ -36,5 +40,5 @@ std::string Library::showBook( int codeBookToShow ) {
 }
 
 std::string Library::theBooks() {
-	return books->toString();
+	return "Library " + libraryName + " has the following books: \n" + books->toString();
 }

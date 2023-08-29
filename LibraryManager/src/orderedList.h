@@ -150,8 +150,8 @@ template<class T>
 std::string OrderedList<T>::toString() {
 	std::string response = "";
 
-	if( size ) {
-		for( int i = 0; i < size; i++ ) {
+	if( this->getCount() ) {
+		for( int i = 0; i < this->getCount(); i++ ) {
 			response += ptr[ i ].toString() + "\n--------------------\n";
 		}
 		return response;
