@@ -36,7 +36,7 @@ void Book::bookReturned() {
 }
 
 std::string Book::toString() {
-	return "Book Code: " + this->getBookCode() +
+	return std::string( "Book Code: " ) + std::to_string( this->getBookCode() ) +
 		std::string( "\nTitle: " ) + this->getTitle() +
 		std::string( "\nAuthor Name: " ) + this->getAuthorName() +
 		std::string( "\nAuthor Lastname: " ) + this->getAuthorLastName() +

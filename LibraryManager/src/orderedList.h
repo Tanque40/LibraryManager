@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 #include "book.h"
 
 template <class T>
@@ -11,8 +12,6 @@ private:
 
 public:
 	OrderedList();
-	OrderedList( T arr[] );
-	OrderedList( T arr[], int size );
 	~OrderedList();
 	int getSize();
 	int getCount();
@@ -47,12 +46,17 @@ bool OrderedList<T>::addElement( T element ) {
 	} else {
 
 		bool positionFounded = false;
+
+		if( element < &ptr[ 0 ] ) {
+			positionFounded = true;
+		}
+
 		int left = 0;
 		int right = this->getCount();
-		while( !positionFounded && positionToAsign < right ) {
+		while( !positionFounded ) {
 			positionToAsign = left + ( right - left ) / 2;
-			if( positionToAsign > 0 && positionToAsign < right - 1 ) {
-				if( element > &ptr[ positionToAsign - 1 ] && element > &ptr[ positionToAsign - 1 ] )
+			if( positionToAsign >= 0 && positionToAsign < right - 1 ) {
+				if( element > &ptr[ positionToAsign - 1 ] && element < &ptr[ positionToAsign ] )
 					positionFounded = true;
 				else {
 					if( element > &ptr[ positionToAsign ] )
@@ -72,10 +76,15 @@ bool OrderedList<T>::addElement( T element ) {
 		}
 
 		this->count++;
-		for( int i = positionToAsign; i < count; i++ )
-			ptr[ ( this->getCount() - 1 ) - i - positionToAsign ] = ptr[ ( this->getCount() - 1 ) - i - positionToAsign - 1 ];
+		unsigned int originalPositon, newPosition;
+		for( int i = positionToAsign; i < count - 1; i++ ) {
+			originalPositon = ( this->getCount() - 1 ) - i + positionToAsign - 1;
+			newPosition = ( this->getCount() - 1 ) - i + positionToAsign;
+			ptr[ newPosition ] = ptr[ originalPositon ];
+		}
 
 		ptr[ positionToAsign ] = element;
+
 
 		return true;
 	}
