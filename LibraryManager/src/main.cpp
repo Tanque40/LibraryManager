@@ -81,7 +81,7 @@ bool askForNewBook( Library* myLabrary ) {
 	std::cout << "Type book code: ";
 	std::cin >> bookCode;
 	std::cout << "Type book title: ";
-	std::cin >> title;
+	std::getline( std::cin >> std::ws, title, '\n' );
 	std::cout << "Type book author name: ";
 	std::cin >> authorName;
 	std::cout << "Type book author last name: ";
