@@ -7,6 +7,8 @@
 **/Debug/**
 .vscode
 Makefile
+bin/**
+bin-int/**
 
 # Prerequisites
 *.d
